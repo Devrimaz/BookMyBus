@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyBus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/contact.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff; /* Light gray background, matching footer */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #000000; /* Black text for contrast */
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #000000; /* Black text for contrast */
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #f0a500; /* Yellow hover */
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: #000000; /* Black to match text */
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            color: #666666;
+        }
+
+        .hero-content .book-now-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #0FB848; /* Green base */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: fit-content;
+        }
+
+        .hero-content .book-now-btn:hover {
+            background: #f0a500; /* Yellow hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .hero-image-placeholder-1, .hero-image-placeholder-2 {
+            position: absolute;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-image-placeholder-1 {
+            width: 450px;
+            height: 300px;
+            background: linear-gradient(45deg, #f0f9f5, #ffffff);
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .hero-image-placeholder-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f9f5, #ffffff);pg);
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        /* Destinations Section */
+        .destinations-section {
+            padding: 60px 20px;
+            background: #f5f5f5; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .destinations-section h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #0FB848; /* Green title */
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .destination-card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #e0f7fa, #ffffff);
+        }
+
+        .destination-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .destination-content h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .destination-content p {
+            font-size: 1em;
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .destination-content a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0FB848; /* Green base */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .destination-content a:hover {
+            background: #f0a500; /* Yellow hover */
+        }
+
+        /* Why BookMyBus Section */
+        .why-book-section {
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff;
+        }
+
+        .why-book-section h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #0FB848; /* Green title */
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .why-book-features {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .feature-item .icon {
+            width: 40px;
+            height: 40px;
+            background: #0FB848; /* Green icon background */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .feature-item-text h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .feature-item-text p {
+            font-size: 1em;
+            color: #666666;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #0FB848;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f0a500; /* Yellow hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #f5f5f5; /* Match navbar background */
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-section {
+                padding: 60px 15px;
+                min-height: auto;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+            }
+
+            .hero-content .book-now-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+
+            .hero-image {
+                min-height: 0;
+                width: 100%;
+                text-align: center;
+                position: relative;
+                height: auto;
+            }
+
+            .hero-image-placeholder-1 {
+                width: 100%;
+                height: 250px;
+                position: relative;
+                right: 0;
+                top: 0;
+                margin-bottom: 20px;
+            }
+
+            .hero-image-placeholder-2 {
+                width: 150px;
+                height: 150px;
+                position: relative;
+                right: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 20px;
+            }
+
+            .destinations-section {
+                padding: 40px 15px;
+            }
+
+            .destinations-section h2 {
+                font-size: 2em;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .destination-image {
+                height: 150px;
+            }
+
+            .destination-content h3 {
+                font-size: 1.3em;
+            }
+
+            .destination-content p {
+                font-size: 0.9em;
+            }
+
+            .destination-content a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .why-book-section {
+                padding: 40px 15px;
+            }
+
+            .why-book-section h2 {
+                font-size: 2em;
+            }
+
+            .why-book-features {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .feature-item {
+                max-width: 100%;
+            }
+
+            .feature-item .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+
+            .feature-item-text h3 {
+                font-size: 1.2em;
+            }
+
+            .feature-item-text p {
+                font-size: 0.9em;
+            }
+
+            .footer a {
+                display: inline-block;
+                margin: 10px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero-section {
+                padding: 40px 10px;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero-content p {
+                font-size: 0.9em;
+            }
+
+            .hero-content .book-now-btn {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+
+            .hero-image-placeholder-1 {
+                height: 180px;
+            }
+
+            .hero-image-placeholder-2 {
+                width: 120px;
+                height: 120px;
+            }
+
+            .destinations-section h2 {
+                font-size: 1.6em;
+            }
+
+            .destination-image {
+                height: 120px;
+            }
+
+            .destination-content h3 {
+                font-size: 1.2em;
+            }
+
+            .destination-content p {
+                font-size: 0.8em;
+            }
+
+            .why-book-section h2 {
+                font-size: 1.6em;
+            }
+
+            .feature-item {
+                padding: 10px;
+            }
+
+            .feature-item .icon {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .feature-item-text h3 {
+                font-size: 1.1em;
+            }
+
+            .feature-item-text p {
+                font-size: 0.8em;
+            }
+
+            .footer a {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav-bar -->
+    <nav class="navbar">
+        <div class="logo">BookMyBus</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><b>Home.</b></a></li>
+            <li><a href="pages/book-tickets.html"><b>Book Tickets.</b></a></li>
+            <li><a href="components/contact.html"><b>Contact.</b></a></li>
+            <li><a href="components/about.html"><b>About.</b></a></li>
+            <li><a href="components/login.html"><b>Login.</b></a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Travel with Ease – Book Your Bus Today!</h1>
+                <p>Affordable, Safe, and Reliable Bus Services Across Sri Lanka.</p>
+                <a href="pages/book-tickets.html" class="book-now-btn">Book Now</a>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder-1"></div>
+                <div class="hero-image-placeholder-2"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Destinations Section -->
+    <section class="destinations-section">
+        <h2>Explore Popular Destinations</h2>
+        <div class="destinations-grid">
+            <div class="destination-card">
+                <div class="destination-image"></div>
+                <div class="destination-content">
+                    <h3>Colombo</h3>
+                    <p>Colombo to Kalmunai: Travel from Colombo to Kalmunai with both day (9:00 AM – 4:00 PM) and night (9:00 PM – 4:00 AM) options for your convenience.</p>
+                    <a href="pages/book-tickets.html">Book Now</a>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-image"></div>
+                <div class="destination-content">
+                    <h3>Kalmunai</h3>
+                    <p>Enjoy flexible travel from Kalmunai to Colombo with daytime (9:00 AM – 4:00 PM) and overnight (9:00 PM – 4:00 AM) departures available.</p>
+                    <a href="pages/book-tickets.html">Book Now</a>
+                </div>
+            </div>
+            <div class="destination-card">
+                <div class="destination-image"></div>
+                <div class="destination-content">
+                    <h3>Galle</h3>
+                    <p>Take a full-day or night round trip from Kalmunai to Galle, departing at 5:30 AM or 12:00 PM, and returning the same day or next morning.</p>
+                    <a href="pages/book-tickets.html">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why BookMyBus Section -->
+    <section class="why-book-section">
+        <h2>Why Book with Us</h2>
+        <div class="why-book-features">
+            <div class="feature-item">
+                <div class="icon">💸</div>
+                <div class="feature-item-text">
+                    <h3>Affordable Prices</h3>
+                    <p>Travel without breaking the bank with our budget-friendly fares.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🚍</div>
+                <div class="feature-item-text">
+                    <h3>Safe Journeys</h3>
+                    <p>Our buses are maintained to the highest safety standards.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="icon">📱</div>
+                <div class="feature-item-text">
+                    <h3>Easy Booking</h3>
+                    <p>Book your tickets in just a few clicks, anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BookMyBus</h3>
+                <p>Book your bus tickets with ease and convenience!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="components/contact.html">Contact Us</a></li>
+                    <li><a href="components/about.html">About Us</a></li>
+                    <li><a href="components/privacypolicy.html">Privacy Policy</a></li>
+                    <li><a href="components/terms&conditions.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: <a href="mailto:support@bookmybus.com">support@bookmybus.com</a></p>
+                <p>Phone: +94 123-456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                </div>
+                <a href="https://wa.me/94702465680?text=Hello%20BookMyBus,%20I%20have%20a%20query!" class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 BookMyBus | Rimaz Ahamed. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Nav Bar
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Removed the scroll event listener since we're not changing navbar color on scroll
+        // Footer
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = window.location.pathname.split('/').pop();
+            document.querySelectorAll('.footer-links a').forEach(link => {
+                if (link.getAttribute('href').endsWith(currentPage)) {
+                    link.style.color = '#f0a500';
+                    link.style.fontWeight = 'bold';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

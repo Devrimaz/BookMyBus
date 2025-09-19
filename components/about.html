@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyBus - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #0FB848; /* Green base */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            min-width: 120px;
+            text-align: center;
+            touch-action: manipulation;
+            z-index: 10;
+        }
+
+        .back-button:hover {
+            background: #f0a500; /* Yellow hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-section {
+            padding: 80px 20px;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            background: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .image-section {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .image-placeholder-1, .image-placeholder-2 {
+            position: absolute;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-placeholder-1 {
+            width: 450px;
+            height: 300px;
+            background: linear-gradient(45deg, #e0f7fa, #ffffff);
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .image-placeholder-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f9f5, #ffffff);
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        .content-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .content-section h1 {
+            font-size: 3em;
+            font-weight: 600;
+            color: #000000;
+            line-height: 1.2;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            width: 2px;
+            height: calc(100% - 70px);
+            background: linear-gradient(#f0a500, transparent);
+            z-index: -1;
+        }
+
+        .feature:first-child::before {
+            display: none;
+        }
+
+        .feature .icon {
+            width: 50px;
+            height: 50px;
+            background: #0FB848; /* Green for icons */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .feature .dot {
+            position: absolute;
+            left: 15px;
+            top: -5px;
+            width: 12px;
+            height: 12px;
+            background: #f0a500; /* Yellow for dots */
+            border-radius: 50%;
+        }
+
+        .feature-text h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .feature-text p {
+            font-size: 1.1em;
+            color: #000000;
+        }
+
+        .why-choose-section {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            background: #f5f5f5; /* Light gray background */
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .why-choose-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .why-choose-content h2 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #0FB848; /* Green title */
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item .icon {
+            width: 40px;
+            height: 40px;
+            background: #0FB848; /* Green icon background */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .feature-item-text h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .feature-item-text p {
+            font-size: 1em;
+            color: #666666;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 15px;
+            }
+
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .image-section {
+                min-height: 0;
+                width: 100%;
+                text-align: center;
+                position: relative;
+                height: auto;
+            }
+
+            .image-placeholder-1 {
+                width: 100%;
+                height: 250px;
+                position: relative;
+                left: 0;
+                top: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-placeholder-2 {
+                width: 150px;
+                height: 150px;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 20px;
+            }
+
+            .content-section {
+                align-items: center;
+            }
+
+            .content-section h1 {
+                font-size: 2.2em;
+                text-align: center;
+            }
+
+            .features {
+                gap: 25px;
+                align-items: center;
+            }
+
+            .feature {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .feature::before {
+                display: none;
+            }
+
+            .feature .dot {
+                display: none;
+            }
+
+            .feature-text h3 {
+                font-size: 1.3em;
+            }
+
+            .feature-text p {
+                font-size: 1em;
+            }
+
+            .why-choose-section {
+                flex-direction: column;
+                gap: 30px;
+                padding: 20px;
+            }
+
+            .why-choose-content h2 {
+                font-size: 2em;
+            }
+
+            .feature-item .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+
+            .feature-item-text h3 {
+                font-size: 1.2em;
+            }
+
+            .feature-item-text p {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .about-section {
+                padding: 40px 10px;
+            }
+
+            .image-placeholder-1 {
+                height: 180px;
+            }
+
+            .image-placeholder-2 {
+                width: 120px;
+                height: 120px;
+            }
+
+            .content-section h1 {
+                font-size: 1.8em;
+            }
+
+            .feature .icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .feature-text h3 {
+                font-size: 1.2em;
+            }
+
+            .feature-text p {
+                font-size: 0.9em;
+            }
+
+            .why-choose-content h2 {
+                font-size: 1.6em;
+            }
+
+            .feature-item {
+                padding: 10px;
+            }
+
+            .feature-item .icon {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .feature-item-text h3 {
+                font-size: 1.1em;
+            }
+
+            .feature-item-text p {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <a href="../index.html" class="back-button" onclick="window.location.href=this.href; return false;">Back</a>
+        <section class="about-section">
+            <!-- Great Opportunity Section -->
+            <div class="about-container">
+                <div class="image-section">
+                    <div class="image-placeholder-1"></div>
+                    <div class="image-placeholder-2"></div>
+                </div>
+                <div class="content-section">
+                    <h1>Great Opportunity for Adventure & Travels</h1>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="dot"></div>
+                            <div class="icon">🚍</div>
+                            <div class="feature-text">
+                                <h3>Safety First Always</h3>
+                                <p>Every bus in our fleet is meticulously maintained to meet the highest safety standards.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="dot"></div>
+                            <div class="icon">💸</div>
+                            <div class="feature-text">
+                                <h3>Low Price & Friendly</h3>
+                                <p>We offer affordable travel solutions without compromising on quality.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="dot"></div>
+                            <div class="icon">🗺️</div>
+                            <div class="feature-text">
+                                <h3>Customized Travel Solutions</h3>
+                                <p>Whether it’s a solo trip, family outing, or group tour, we’ve got you covered.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="why-choose-section">
+                <div class="why-choose-content">
+                    <h2>Why choose us</h2>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="icon">🏢</div>
+                            <div class="feature-item-text">
+                                <h3>Corporate Travel</h3>
+                                <p>Reliable, on-time transportation for businesses, conferences, and events.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">🌄</div>
+                            <div class="feature-item-text">
+                                <h3>Group Tours</h3>
+                                <p>Explore Sri Lanka’s cities, nature, and landmarks with comfortable tours.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">🎉</div>
+                            <div class="feature-item-text">
+                                <h3>Special Event Charters</h3>
+                                <p>Stylish transportation for weddings, concerts, and special days.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">🚌</div>
+                            <div class="feature-item-text">
+                                <h3>Custom Charter Services</h3>
+                                <p>Tailored solutions for your specific travel requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

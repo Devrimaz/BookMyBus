@@ -1,0 +1,3 @@
+Text Color: #0FB848
+Compnents Color: #f0a500
+Background Color White/black: #303030

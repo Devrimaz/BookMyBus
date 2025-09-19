@@ -1,0 +1,189 @@
+footer {
+    background-color: #ffffff; /* Green background for entire footer */
+    color: #000000;
+    padding: 40px 0 0; /* Restored to original desktop value */
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px 0; /* Restored to original desktop value */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Shadow remains */
+}
+
+.footer-content {
+    background-color: #ffffff; /* Green for main content */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Restored to original desktop value */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 20px; /* Restored to original desktop value */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px; /* Restored to original desktop value */
+    padding: 10px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: block;
+}
+
+.footer-links a:hover {
+    color: #f0a500;
+    transform: translateX(5px);
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+    color: #f0a500;
+    transform: scale(1.2);
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0FB848;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-button i {
+    font-size: 1.2em;
+}
+
+.whatsapp-button:hover {
+    color: #f0a500;
+    transform: scale(1.1);
+}
+
+.whatsapp-button-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0FB848, #0D8B3E);
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button-alt i {
+    color: #000000;
+    font-size: 1.5em;
+}
+
+.whatsapp-button-alt:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-bottom {
+    background-color: #303030; /* Black background for bottom section */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0; /* Restored to original desktop value */
+    margin-top: 0; /* Removed margin to ensure seamless transition */
+    border-top: 2px solid #666; /* Thicker border for separation */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px; /* Restored to original desktop value */
+    width: 100%; /* Explicitly set to full width */
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    margin: 0;
+    line-height: 1.6; /* Improved readability */
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 0 0; /* Reduced top padding for mobile */
+        margin: 5px 0; /* Reduced margin for mobile */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 15px 5px; /* Reduced padding for mobile */
+        gap: 10px; /* Reduced gap for mobile */
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: 5px; /* Reduced margin-bottom for mobile */
+    }
+
+    .footer-section h3 {
+        text-align: center;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links a {
+        text-align: center;
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .whatsapp-button {
+        justify-content: center;
+    }
+
+    .whatsapp-button-alt {
+        margin: 10px auto; /* Reduced margin for mobile */
+    }
+
+    .footer-bottom {
+        padding: 15px 0; /* Kept as is, but reduced min-height */
+        min-height: 30px; /* Reduced min-height for mobile */
+    }
+}

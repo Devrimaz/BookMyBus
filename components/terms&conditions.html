@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyBus - Terms & Conditions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #ffffff; /* White background */
+            color: #000000; /* Black text */
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #0FB848; /* Green base */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            min-width: 120px;
+            text-align: center;
+            touch-action: manipulation;
+            z-index: 10;
+        }
+
+        .back-button:hover {
+            background: #f0a500; /* Yellow hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .terms-section {
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            background: #f5f5f5; /* Light gray background */
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .terms-section h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #0FB848; /* Green title */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .terms-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .terms-content h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .terms-content p {
+            font-size: 1.1em;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul li {
+            font-size: 1.1em;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .terms-section {
+                padding: 70px 30px 30px; /* Increased top padding to avoid overlap with back button */
+                max-width: 600px;
+            }
+
+            .terms-section h1 {
+                font-size: 2em;
+            }
+
+            .terms-content h2 {
+                font-size: 1.5em;
+            }
+
+            .terms-content p, .terms-content ul li {
+                font-size: 1em;
+            }
+
+            .back-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+                min-width: 110px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .terms-section {
+                padding: 60px 20px 20px; /* Adjusted top padding for smaller screens */
+                max-width: 300px;
+            }
+
+            .terms-section h1 {
+                font-size: 1.6em;
+            }
+
+            .terms-content h2 {
+                font-size: 1.3em;
+            }
+
+            .terms-content p, .terms-content ul li {
+                font-size: 0.9em;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 1em;
+                min-width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button" onclick="window.location.href=this.href; return false;">Back</a>
+    <section class="terms-section">
+        <h1>Terms & Conditions</h1>
+        <div class="terms-content">
+            <h2>Introduction</h2>
+            <p>Welcome to BookMyBus. These Terms & Conditions govern your use of our website and services. By accessing or using our services, you agree to comply with these terms. Please read them carefully.</p>
+
+            <h2>Booking Terms</h2>
+            <p>By booking a ticket with BookMyBus, you agree to:</p>
+            <ul>
+                <li>Provide accurate personal and payment information.</li>
+                <li>Adhere to the scheduled departure and arrival times.</li>
+                <li>Be responsible for any additional fees or charges incurred.</li>
+            </ul>
+
+            <h2>Payment Terms</h2>
+            <p>All bookings require full payment at the time of reservation. We accept payments through secure third-party providers. Refunds are subject to our cancellation policy.</p>
+
+            <h2>Liability</h2>
+            <p>BookMyBus is not liable for delays, cancellations, or damages caused by unforeseen circumstances such as weather conditions or mechanical issues. We strive to ensure a safe and reliable service.</p>
+
+            <h2>Cancellation Policy</h2>
+            <p>Cancellations must be made at least 24 hours before departure to receive a full refund. Cancellations within 24 hours are subject to a 50% fee. No refunds are issued for no-shows.</p>
+
+            <h2>Governing Law</h2>
+            <p>These Terms & Conditions are governed by the laws of Sri Lanka. Any disputes will be resolved in accordance with Sri Lankan jurisdiction.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about these Terms & Conditions, please contact us at <a href="/cdn-cgi/l/email-protection#93e0e6e3e3fce1e7d3f1fcfcf8feeaf1e6e0bdf0fcfe"><span class="__cf_email__" data-cfemail="ndaea8adadb2afa9ndbfb2b2b6b0a4bfa8aef3beb2b0">[email&#160;protected]</span></a> or through our Contact Us page.</p>
+        </div>
+    </section>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93af73cd0bcf5084',t:'MTc0NjQzOTg3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
